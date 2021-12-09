@@ -1,0 +1,38 @@
+          //exercice5:
+#include <iostream>
+#include <string>
+using namespace std;
+class Animal
+{
+	protected:
+	 //declaration des membres de la classe  mere "animal"
+	 string nom;
+	 int age;
+	public:
+	 void set_value (int a, string n) //dclaration de la methode set_value 
+	 {
+		age = a;
+		nom = n;
+	 }
+
+
+};
+
+
+class Zebra:public Animal{  //declaration sous classe zebra
+public:
+void displayZebraMessage()
+{
+cout<< "le nom du zebra est  "<<nom<<".  et son age est"<< age << " ans  \n";}
+};
+
+
+class Dolphin: public Animal //declaration sous classe dolphin
+{
+public:
+
+
+void displayDolphinMessage() 
+{
+cout<< "le nom du dolphin est :  "<< nom<< ". et son age est  "<<age << "ans /n";}
+};
