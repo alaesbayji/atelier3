@@ -1,0 +1,63 @@
+       //exercice2:
+#include <iostream>
+using namespace std;
+
+class shape //creation du classe shape 
+{
+private:
+    double largeur, hauteur;
+public:
+    //  constructeur
+    shape(double nvlargeur, double nvhauteur){
+        this->largeur=nvlargeur;
+        this->hauteur=nvhauteur;
+    }
+    double getlargeur() const
+    {
+        return largeur;
+    }
+    double gethauteur() const
+    {
+        return hauteur;
+    }
+};
+
+ //  de sous classe rectangle 
+class Rectangle: public shape
+{
+public:
+   
+    Rectangle(double largeur, double hauteur):shape(largeur,hauteur)
+    {
+
+    }
+    double area()
+    {
+        return (getlargeur()*gethauteur());
+    }
+};
+
+ //  de sous classe rectangle 
+class Triangle: public shape
+{
+public:
+    Triangle(double base, double hauteur): shape(base,hauteur)
+    {
+
+    }
+    double area()
+    {
+        return (getlargeur()*gethauteur())/2.0;
+    }
+};
+
+int main ()     //definir un rectangle et un triangle
+{
+    Rectangle rectangle(5.0,3.0);
+    Triangle triangle(2.0,5.0);
+    cout <<"Area du rectangle est: "<< rectangle.area() << endl; //appel a la fonction area dans les deux classe 
+    cout <<"Area du triangle est: "<< triangle.area() << endl;
+
+    system("pause");
+    return 0;
+}
