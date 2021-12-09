@@ -1,0 +1,69 @@
+ //exercice3:
+//  Programme C++ pour ajouter deux nombres complexes
+ 
+
+#include<bits/stdc++.h>
+using namespace std;
+  
+// definir une classe complex 
+class Complex {
+  
+    // Declaration des  variables
+    public:
+        int real, imaginary;
+  
+    // Constructeur
+    // la partie reel et la partie imaginaire
+    Complex(int tempReal = 0, int tempImaginary = 0)
+    {
+        real = tempReal;
+        imaginary = tempImaginary;
+    }
+  
+    // definir la methode addComp() 
+    // pour ajouter 2 nombres complexes 
+    Complex addComp(Complex C1, Complex C2)
+    {
+        // creer un variable temporaire
+        Complex temp;
+  
+        // ajouter la partie reel a un nombre
+        temp.real = C1.real + C2.real;
+  
+        // ajouter la partie imaginaire a un nombre
+        temp.imaginary = C1.imaginary + C2.imaginary;
+  
+        // retourner la somme
+        return temp;
+    }
+};
+  
+// La fonction principale main
+int main()
+{
+ 
+    // le premier nombre  complexe
+    Complex C1(3, 2);
+ 
+    // afficher le premier nombre complexe
+    cout<<"le nombre complexe numero 1 : "<< C1.real
+                << " + i"<< C1.imaginary<<endl;
+ 
+    // le deuxieme nombre complexe
+    Complex C2(9, 5);
+ 
+    // afficher le deuxieme nombre complexe
+    cout<<" le nombre complexe numero  2 : "<< C2.real
+                << " + i"<< C2.imaginary<<endl;
+ 
+    // pour stocker la somme
+    Complex C3;
+ 
+    // faire appelle a la methode addComp() 
+    C3 = C3.addComp(C1, C2);
+ 
+    // afficher la somme 
+    cout<<" la somme des nombres complexes est : "
+                       << C3.real << " + i"
+                       << C3.imaginary;
+}
