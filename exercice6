@@ -1,0 +1,76 @@
+  //exercice6:
+#include<iostream>
+using namespace std;
+class Personne{ //declaration de la classe personne
+	private:
+		string nom;
+		string prenom;
+		string dt;
+    public:
+    	Personne(string nom,string prenom,string dt)
+{ 
+this->nom=nom;
+this->prenom=prenom;
+this->dt=dt;
+}
+virtual void afficher()
+{ 
+cout<<"nom="<<nom<<"prenom="<<prenom<<"dt="<<dt;
+}
+};
+class Employe:public Personne //declaration de la classe employe qui derive la classe personne 
+{
+protected:
+	float salaire;
+	public:
+		Employe(string nom,string prenom,string dt,float salaire):Personne(nom,prenom,dt)
+{
+	this->salaire=salaire;
+}
+virtual void afficher(){
+	Personne::afficher();
+cout<<"salaire="<<salaire;
+}
+};
+class Chef:public Employe //declaration de la classe chef qui derive la classe employe
+{
+protected:
+	string service;
+	public:
+		Chef(string nom,string prenom,string dt,float salaire,string service):Employe(nom,prenom,dt,salaire)
+{
+	this->service=service;
+}
+virtual void afficher(){
+	Employe::afficher();
+cout<<"service="<<service;
+}
+};
+class Directeur:public Chef //declaration de la classe directeur qui derive la classe chef 
+{
+protected:
+	string societe;
+	public:
+		Directeur(string nom,string prenom,string dt,float salaire,string service,string societe):Chef(nom,prenom,dt,salaire,service)
+{
+	this->societe=societe;
+}
+virtual void afficher(){
+	Chef::afficher();
+cout<<"societe="<<societe;
+}
+};
+
+int main()
+
+{
+	int i;
+	Personne *T[4];
+	T[0]=new Personne("SBAYJI \n","ALAE\n","03/07/2001\n\n\n");
+	T[1]=new Employe("SBAYJI\n","YASSINE\n","12/12/1977\n",2000);
+	T[2]=new Chef("SBAYJI\n","AYA\n","04/01/2006\n",2000,"abc\n\n\n");
+	T[3]=new Directeur("ELHAOUTI\n","LATIFA\n","27/07/2000\n",2000,"abc\n","rtg\n\n\n");
+	
+	for (i=0;i<4;i++)
+	T[i]->afficher();
+	}
