@@ -1,0 +1,25 @@
+  //exercice4:
+#include <iostream>
+using namespace std;
+//clasase mere 
+class mere{
+public:
+	void display ()
+	{
+		cout << "mere:  fonction display \n";
+	}
+};
+//classe fille herite 
+class fille : public mere{
+public:
+	void display ()
+	{
+		cout << "fille: fonction display \n\n";
+	}
+};
+
+int main ()
+{
+	fille rita;   //definier la fille
+	rita.display();    //appel a la methode display()
+}
